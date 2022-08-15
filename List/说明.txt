@@ -1,0 +1,77 @@
+
+用无序链表实现栈、队列、双端队列
+
+一、主入口在最外层main.py (引入test即可  import List.test)
+
+二、测试代码在List/test.py
+在test()里分别执行
+    test_deque()
+    test_queue()
+    test_stack()
+
+
+
+
+
+
+三、代码说明(5个代码文件)
+
+节点类:
+1.文件：List/node.py 读取和设置data、next属性，输出值
+2.基本实现：
+    get_data()
+    get_next()
+    set_data()
+    set_next()
+    to_string() 输出节点值，如果是链表按顺序输出所有节点的值
+
+无序链表类：
+1.文件：List/unorderedlist.py里
+2.链表顺序定为：左头右尾
+3.基本操作实现：
+    add_first()
+    add_last()
+    get_last_node()
+    get_last_two_nodes()
+
+    is_empty()
+    length()
+
+    search(v)
+
+    remove(v)
+    remove_first()
+    remove_last()
+
+
+栈类：
+1.文件： List/stack.py
+2.栈顺序定为：左底右顶 (抽象在列表存储时), (栈在栈顶(列表右侧即链尾)新增、删除)
+3.基本操作实现：
+    s.push()  -> ul.add_last()
+    s.peek() -> ul.get_last_node()
+    s.is_empty()-> ul.is_empty()
+    s.size() -> ul.length()
+    s.pop() -> ul.remove_last()
+
+队列类：
+1.文件：List/queue.py
+2.队列顺序定为：左尾右头（抽象在列表存储时。顺序与链表相反), (队列在尾部(列表左侧即链头)新增，头部删除)
+3.基本操作实现：
+    q.enqueue()  -> ul.add_first()
+    s.is_empty()-> ul.is_empty()
+    s.size() -> ul.length()
+    q.dequeue() -> ul.remove_last()
+
+
+
+双端队列类：
+1.文件：List/deque.py
+2.双端队列顺序定为：左尾右头（抽象在列表存储时。顺序与链表相反)
+3.基本操作实现：
+    dq.add_front()  -> ul.add_last()
+    dq.add_rear()  -> ul.add_first()
+    dq.remove_front()  -> ul.remove_last()
+    dq.remove_rear()  -> ul.remove_first()
+    dq.is_empty()-> ul.is_empty()
+    dq.size() -> ul.length()

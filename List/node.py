@@ -36,16 +36,16 @@ class Node:
 
 
     def to_string(self, linked_list=False):
-        #输出节点的数据
-        #如果是链表，输出当前头结点到链表尾的数据
-        #否则就输出当前节点的数据
+        """输出节点的数据"""
         if linked_list:
+            # 如果是链表，输出当前头结点到链表尾的数据
             current = self
             while current is not None:
                 if current.get_data() is not None:
-                    print(current.get_data(), end='')
+                    print(current.get_data(), end=',')
                 current = current.get_next()
 
             print('')
         else:
+            # 否则只输出当前节点的data数据
             print(self.data)

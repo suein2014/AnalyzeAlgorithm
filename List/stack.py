@@ -11,56 +11,32 @@
 ---------------------------------------------
 """
 
+
 from .unorderedlist import UnorderedList
 from .node import Node
 
+
 class Stack:
+    """链表实现栈，
+    - 链表左头右尾， 栈左底右顶(顶端即右端操作增删)。
+    """
     def __init__(self):
         self.unorderedlist = UnorderedList()
 
     def push(self, new_node):
-        self.unorderedlist.add_item(new_node)
+        self.unorderedlist.add_last(new_node)
 
     def peek(self):
-        return self.unorderedlist.head
+        return self.unorderedlist.get_last_node()
 
     def is_empty(self):
-        self.unorderedlist.is_empty()
+        return self.unorderedlist.is_empty()
 
     def size(self):
         return self.unorderedlist.length()
 
     def pop(self):
+        return self.unorderedlist.remove_last()
 
-        del_val = self.unorderedlist.head.get_data()
-        print('dd',del_val)
-        second_node = self.unorderedlist.head.next
-        print('second', second_node.get_data())
-        self.unorderedlist.head = second_node
-        self.unorderedlist.remove(del_val)
-        return del_val
-
-
-
-
-s = Stack()
-
-lst = [1, 'dog2', '----3']
-for i in lst:
-    s.push(i)
-
-
-#print(s.size())
-data = s.peek()
-data.to_string()
-data.to_string(True)
-
-
-
-s.pop()
-
-data = s.peek()
-data.to_string()
-data.to_string(True)
-
-
+    def get_head(self): #开发时查看输出用
+        return self.unorderedlist.head
